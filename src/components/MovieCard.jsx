@@ -7,7 +7,7 @@ const MovieCard = ({ title, description, posterURL, rating }) => {
       hoverable
       cover={
         <img
-          className="w-[300px] h-[300px] object-cover"
+          className="w-[300px] h-[600px] object-cover"
           alt="example"
           src={posterURL}
         />
