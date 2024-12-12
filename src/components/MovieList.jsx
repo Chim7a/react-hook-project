@@ -3,7 +3,7 @@ import MovieCard from "./MovieCard";
 
 const MovieList = ({ moviesData }) => {
   return (
-    <div>
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 container mx-auto p-2 gap-3">
       {moviesData.map((movies) => {
         return (
           <MovieCard

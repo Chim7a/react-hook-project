@@ -26,7 +26,7 @@ function App() {
         break;
       case "Rating-5-and-above":
         {
-          const movieRatingGreaterThan5 = MovieData.filter(
+          const movieRatingGreaterThan5 = moviesData.filter(
             (item) => item.rating > 5
           );
           setMovieData(movieRatingGreaterThan5);
@@ -43,13 +43,16 @@ function App() {
 
   return (
     <>
-      <AddMovie handleAddNewMovie={handleAddNewMovie} />
+      <section className="container mx-auto pt-5">
+        <div className="flex gap-2 max-w-69">
+          <AddMovie handleAddNewMovie={handleAddNewMovie} />
+          {/* Filter movie */}
+          <FilterMovies handleMovieRatingFilter={handleMovieRatingFilter} />
+          {/* *********** */}
+        </div>
 
-      {/* Filter movie */}
-      <FilterMovies handleMovieRatingFilter={handleMovieRatingFilter} />
-      {/* *********** */}
-
-      <MovieList moviesData={moviesData} />
+        <MovieList moviesData={moviesData} />
+      </section>
     </>
   );
 }
