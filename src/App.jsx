@@ -1,58 +1,36 @@
-import { useState } from "react";
 import "./App.css";
-import MovieData from "./Data";
-import MovieList from "./components/MovieList";
-import AddMovie from "./components/AddMovie";
-import FilterMovies from "./components/FilterMovies";
+import { Routes, Route } from "react-router";
+import Home from "./Pages/Home";
+import { useState } from "react";
+import Description from "./components/Description";
 
 function App() {
-  const [moviesData, setMovieData] = useState(MovieData);
-
-  const handleAddNewMovie = (movieInfo) => {
-    // To generate and add a random ID into a new movie added from AddMovie.Jsx to be added to data.js
-    return setMovieData([movieInfo, ...MovieData]);
-  };
-
-  const handleMovieRatingFilter = (value) => {
-    switch (value) {
-      case "Rating less than 5":
-        {
-          const movieRatingLessThan5 = MovieData.filter(
-            (item) => item.rating < 5
-          );
-          setMovieData(movieRatingLessThan5);
-        }
-
-        break;
-      case "Rating-5-and-above":
-        {
-          const movieRatingGreaterThan5 = moviesData.filter(
-            (item) => item.rating > 5
-          );
-          setMovieData(movieRatingGreaterThan5);
-        }
-        break;
-
-      case "All": {
-        setMovieData(MovieData);
-      }
-      default:
-        break;
-    }
-  };
+  const [showDescription, setShowDescription] = useState(true);
+  console.log(showDescription);
 
   return (
     <>
-      <section className="container mx-auto pt-5">
-        <div className="flex gap-2 max-w-69">
-          <AddMovie handleAddNewMovie={handleAddNewMovie} />
-          {/* Filter movie */}
-          <FilterMovies handleMovieRatingFilter={handleMovieRatingFilter} />
-          {/* *********** */}
-        </div>
-
-        <MovieList moviesData={moviesData} />
-      </section>
+      {showDescription ? (
+        <Description
+          showDescription={showDescription}
+          setShowDescription={setShowDescription}
+        />
+      ) : (
+        <></>
+      )}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        {/* 
+        <Route
+          path="/description"
+          element={
+            <Description
+              showdescription={showdescription}
+              setShowDescription={setShowDescription}
+            />
+          }
+        /> */}
+      </Routes>
     </>
   );
 }
