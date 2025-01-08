@@ -5,31 +5,22 @@ import { useState } from "react";
 import Description from "./components/Description";
 
 function App() {
-  const [showDescription, setShowDescription] = useState(true);
-  console.log(showDescription);
+  const [showDescription, setShowDescription] = useState(false);
 
   return (
     <>
-      {showDescription ? (
-        <Description
-          showDescription={showDescription}
-          setShowDescription={setShowDescription}
-        />
-      ) : (
-        <></>
-      )}
       <Routes>
-        <Route path="/" element={<Home />} />
-        {/* 
         <Route
-          path="/description"
+          path="/"
           element={
-            <Description
-              showdescription={showdescription}
+            <Home
+              showDescription={showDescription}
               setShowDescription={setShowDescription}
             />
           }
-        /> */}
+        />
+
+        <Route path="description/:movie_id" element={<Description />} />
       </Routes>
     </>
   );

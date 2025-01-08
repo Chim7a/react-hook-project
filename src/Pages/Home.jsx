@@ -4,7 +4,7 @@ import MovieList from "../components/MovieList";
 import AddMovie from "../components/AddMovie";
 import FilterMovies from "../components/FilterMovies";
 
-function Home() {
+function Home({ showDescription, setShowDescription }) {
   const [moviesData, setMovieData] = useState(MovieData);
 
   const handleAddNewMovie = (movieInfo) => {
@@ -50,7 +50,11 @@ function Home() {
           {/* *********** */}
         </div>
 
-        <MovieList moviesData={moviesData} />
+        <MovieList
+          showDescription={showDescription}
+          setShowDescription={setShowDescription}
+          moviesData={moviesData}
+        />
       </section>
     </>
   );

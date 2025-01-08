@@ -1,8 +1,9 @@
 import React from "react";
 import { Card } from "antd";
 import { Link } from "react-router";
+
 const { Meta } = Card;
-const MovieCard = ({ title, description, posterURL, rating }) => {
+const MovieCard = ({ title, id, description, posterURL, rating }) => {
   return (
     <Card
       hoverable
@@ -21,12 +22,11 @@ const MovieCard = ({ title, description, posterURL, rating }) => {
             <p>{rating}</p>
             <p>{description}</p>
 
-            <button
-              onClick={() => setShowDescription(false)}
-              className="bg-black text-white py-2 px-4 borde rounded-md"
-            >
-              Show movie description
-            </button>
+            <Link to={`/description/${id}`}>
+              <button className="bg-black text-white py-2 px-4 borde rounded-md">
+                Show movie description
+              </button>
+            </Link>
           </div>
         }
       />
