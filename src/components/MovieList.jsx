@@ -1,7 +1,7 @@
 import React from "react";
 import MovieCard from "./MovieCard";
 
-const MovieList = ({ showDescription, setShowDescription, moviesData }) => {
+const MovieList = ({ moviesData }) => {
   return (
     <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 container mx-auto p-2 gap-3">
       {moviesData.map((movies) => {
@@ -13,8 +13,6 @@ const MovieList = ({ showDescription, setShowDescription, moviesData }) => {
             description={movies.description}
             posterURL={movies.posterURL}
             rating={movies.rating}
-            showDescription={showDescription}
-            setShowDescription={setShowDescription}
           />
         );
       })}

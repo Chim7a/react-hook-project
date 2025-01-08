@@ -5,20 +5,10 @@ import { useState } from "react";
 import Description from "./components/Description";
 
 function App() {
-  const [showDescription, setShowDescription] = useState(false);
-
   return (
     <>
       <Routes>
-        <Route
-          path="/"
-          element={
-            <Home
-              showDescription={showDescription}
-              setShowDescription={setShowDescription}
-            />
-          }
-        />
+        <Route path="/" element={<Home />} />
 
         <Route path="description/:movie_id" element={<Description />} />
       </Routes>
